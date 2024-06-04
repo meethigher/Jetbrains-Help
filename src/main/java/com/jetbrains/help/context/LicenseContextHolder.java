@@ -28,8 +28,7 @@ import static cn.hutool.crypto.asymmetric.SignAlgorithm.SHA1withRSA;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class LicenseContextHolder {
 
-    public static String generateLicense(String licensesName, String assigneeName, String expiryDate, Set<String> productCodeSet) {
-        String licenseId = IdUtil.fastSimpleUUID();
+    public static String generateLicense(String licenseId, String licensesName, String assigneeName, String expiryDate, Set<String> productCodeSet) {
         List<Product> products = productCodeSet.stream()
                 .map(productCode -> new Product()
                         .setCode(productCode)
@@ -55,6 +54,11 @@ public class LicenseContextHolder {
             throw new IllegalArgumentException("Certificate extraction failed", e);
         }
         return CharSequenceUtil.format("{}-{}-{}-{}", licenseId, licensePartBase64, signatureBase64, certBase64);
+    }
+
+    public static String generateLicense(String licensesName, String assigneeName, String expiryDate, Set<String> productCodeSet) {
+        String licenseId = IdUtil.fastSimpleUUID();
+        return generateLicense(licenseId, licensesName, assigneeName, expiryDate, productCodeSet);
     }
 
     @Data

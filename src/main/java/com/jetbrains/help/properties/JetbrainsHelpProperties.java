@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties("help")
 public class JetbrainsHelpProperties {
 
+    private String defaultLicenseId;
+
     private String defaultLicenseName;
 
     private String defaultAssigneeName;

@@ -54,6 +54,110 @@
         </dependency>
     </dependencies>
 
+
+    <!--使用仓库的顺序，按照如下从前到后。具体配置说明参考https://meethigher.top/blog/2023/idea-proxy/ -->
+    <repositories>
+        <!--阿里维护的中央仓库镜像，不需科学上网-->
+        <repository>
+            <id>alibaba</id>
+            <name>alibaba-maven-central</name>
+            <url>https://maven.aliyun.com/repository/central</url>
+            <!-- 是否开启发布版构件下载 -->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <!-- 是否开启快照版构件下载 -->
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <!--腾讯维护的中央仓库镜像，不需科学上网-->
+        <repository>
+            <id>tencent</id>
+            <name>tencent-maven-central</name>
+            <url>http://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>
+            <!-- 是否开启发布版构件下载 -->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <!-- 是否开启快照版构件下载 -->
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <!--apache维护的中央仓库，需要settings.xml配置文件里配置代理以实现科学上网-->
+        <repository>
+            <id>central2</id>
+            <name>apache-maven-central</name>
+            <url>https://repo1.maven.org/maven2/</url>
+            <!-- 是否开启发布版构件下载 -->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <!-- 是否开启快照版构件下载 -->
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <!--官方中央仓库，需要settings.xml配置文件里配置代理以实现科学上网-->
+        <repository>
+            <id>central</id>
+            <name>maven-central</name>
+            <url>https://repo1.maven.org/maven2/</url>
+            <!-- 是否开启发布版构件下载 -->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <!-- 是否开启快照版构件下载 -->
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <!--gis空间信息仓库，需要settings.xml配置文件里配置代理以实现科学上网-->
+        <repository>
+            <id>gis</id>
+            <name>maven-gis</name>
+            <url>https://repo.osgeo.org/repository/release/</url>
+            <!-- 是否开启发布版构件下载 -->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <!-- 是否开启快照版构件下载 -->
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <!--插件仓库配置，使用顺序从前到后-->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>alibaba</id>
+            <name>alibaba-maven-central</name>
+            <url>https://maven.aliyun.com/repository/central</url>
+            <!-- 是否开启发布版构件下载 -->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <!-- 是否开启快照版构件下载 -->
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>central</id>
+            <name>maven-central</name>
+            <url>https://repo1.maven.org/maven2/</url>
+            <!-- 是否开启发布版构件下载 -->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <!-- 是否开启快照版构件下载 -->
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <finalName>${artifactId}</finalName>
         <plugins>

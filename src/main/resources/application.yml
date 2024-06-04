@@ -4,8 +4,9 @@ spring:
   thymeleaf:
     cache: false
 server:
-  port: 10768
+  port: 54190
 help:
-  default-license-name: 光云
-  default-assignee-name: 藏柏
-  default-expiry-date: 2111-11-11
+  default-license-id: "HUST"
+  default-license-name: "Huazhong University of Science and Technology"
+  default-assignee-name: Wang
+  default-expiry-date: 2030-04-25

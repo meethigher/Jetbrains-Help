@@ -22,6 +22,8 @@ public class OpenApiController {
     @Data
     public static class GenerateLicenseReqBody {
 
+        private String licenseId;
+
         private String licenseName;
 
         private String assigneeName;
@@ -49,10 +51,11 @@ public class OpenApiController {
                     .toList();
             productCodeSet = CollUtil.newHashSet(productCodeList);
             productCodeSet.addAll(pluginCodeList);
-        }else {
+        } else {
             productCodeSet = CollUtil.newHashSet(CharSequenceUtil.splitTrim(body.getProductCode(), ','));
         }
         return LicenseContextHolder.generateLicense(
+                body.getLicenseId(),
                 body.getLicenseName(),
                 body.getAssigneeName(),
                 body.getExpiryDate(),
